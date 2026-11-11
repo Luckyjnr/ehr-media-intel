@@ -35,3 +35,26 @@ Outputs (`data/clean/`, git-ignored):
 
 Code lives in `app/ingestion/`: `loaders` → `cleaners` → `dedupe` → `pipeline`, with
 models in `models.py` and the audit trail in `audit.py`.
+
+## Task 2: FHIR mapping, validation and storage
+
+```bash
+python -m app.ingestion.pipeline   # Task 1 first: writes data/clean/
+python -m app.fhir.build           # read data/clean, write data/store, print a summary
+```
+
+- Maps cleaned records to FHIR R4 resources (via `fhir.resources.R4B`): `Patient`, `Encounter`,
+  `DocumentReference` (note text as base64 `text/plain`) and `DiagnosticReport` (one per lab).
+- Builds one `Bundle` (type `collection`) per patient; resources reference each other with `urn:uuid` fullUrls.
+- Patients in an `MRN_CONFLICT` get no bundle and are listed as "held for review".
+- Validates every resource through `fhir.resources` and checks every reference resolves inside its bundle.
+  Only bundles that pass are stored.
+
+Outputs (`data/store/`, git-ignored):
+
+| File | Contents |
+|---|---|
+| `fhir.db` | SQLite table `bundles (mrn, bundle_json, resource_count, created_at)` |
+| `validation_report.json` / `.md` | Bundles built, passed, failed, held for review, errors in plain words |
+
+Code lives in `app/fhir/`: `mapper` → `bundle` → `validate` → `store`, run by `build`.
