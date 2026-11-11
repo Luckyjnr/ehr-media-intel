@@ -1,0 +1,9 @@
+Patient: john smith
+MRN: 12-345
+DOB: 04/12/1958
+Date: March 19 2024
+Type: Progress Note
+
+Diabetes follow up 2 weeks after discharge. Fasting glucose readings 130-160 at home.
+No hypoglycemia. Tolerating metformin. Increase glargine to 22 units nightly.
+Foot exam normal. Referred to diabetes education. Recheck HbA1c in 3 months.

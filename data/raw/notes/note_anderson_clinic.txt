@@ -1,0 +1,8 @@
+Patient: nancy  anderson
+MRN: 0124567
+DOB:
+Date: 5/3/24
+Type: Clinic Note
+
+New patient visit for knee pain. Right knee osteoarthritis on exam, mild effusion.
+Plan: physical therapy, acetaminophen as needed, X-ray of the right knee.

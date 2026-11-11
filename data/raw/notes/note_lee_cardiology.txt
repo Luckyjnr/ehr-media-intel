@@ -1,0 +1,9 @@
+Patient: Lee, David
+MRN: MRN 90123
+DOB: 09/19/1977
+Date: 2024-04-24
+Type: Consult
+
+Cardiology follow up after admission for chest pain. Asymptomatic since discharge.
+Stress test negative. LDL 162 mg/dL. Start atorvastatin 40 mg daily.
+Lifestyle counseling given. Return in 6 months.

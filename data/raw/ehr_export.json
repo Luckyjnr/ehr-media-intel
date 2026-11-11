@@ -1,0 +1,298 @@
+{
+  "export_meta": {
+    "system": "EpicSim (synthetic)",
+    "exported_at": "2024-06-01",
+    "note": "100% synthetic data. See data/raw/README.md for the deliberate problems."
+  },
+  "patients": [
+    {
+      "mrn": "12345",
+      "name": { "first": "  john ", "last": "SMITH" },
+      "dob": "1958-04-12",
+      "sex": "M",
+      "encounters": [
+        {
+          "encounter_id": "ENC-1001",
+          "type": "inpatient",
+          "documents": [
+            {
+              "type": "Discharge Summary",
+              "date": "03/05/2024",
+              "title": "Discharge Summary - Hyperglycemia",
+              "text": "65-year-old male with type 2 diabetes admitted with blood glucose of 412 mg/dL and mild dehydration. Treated with IV fluids and an insulin infusion, then moved to basal-bolus insulin. HbA1c 7.2%. Discharged in stable condition on metformin 1000 mg twice daily and insulin glargine 20 units nightly. Follow up with primary care in 2 weeks for a glucose log review."
+            }
+          ],
+          "labs": [
+            {
+              "test": "Hemoglobin A1c",
+              "loinc": "4548-4",
+              "value": 7.2,
+              "unit": "%",
+              "ref_range": "4.0-5.6",
+              "flag": "H",
+              "collected": "2024-03-05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "MRN-0023456",
+      "name": { "first": "Maria", "last": "Garcia" },
+      "dob": "30-Nov-1972",
+      "sex": "female",
+      "encounters": [
+        {
+          "encounter_id": "ENC-2001",
+          "type": "outpatient",
+          "documents": [
+            {
+              "type": "Radiology",
+              "date": "2024-03-05T14:20:00",
+              "title": "Chest X-ray, 2 views",
+              "text": "Indication: persistent cough for 3 weeks. Findings: lungs are clear with no focal consolidation, effusion or pneumothorax. Heart size is normal. Impression: no acute cardiopulmonary process."
+            }
+          ],
+          "labs": [
+            {
+              "test": "Hemoglobin",
+              "loinc": "718-7",
+              "value": "11.20",
+              "unit": "g/dL",
+              "ref_range": "12.0-15.5",
+              "flag": "L",
+              "collected": "2024-03-05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "0034567",
+      "name": { "first": "ROBERT", "last": "johnson" },
+      "dob": "July 4 1945",
+      "sex": "1",
+      "encounters": [
+        {
+          "encounter_id": "ENC-3001",
+          "type": "inpatient",
+          "documents": [
+            {
+              "type": "discharge summary",
+              "date": "March 5 2024",
+              "title": "Discharge Summary - CHF exacerbation",
+              "text": "78-year-old male with heart failure with reduced ejection fraction (EF 30%) admitted with shortness of breath and leg swelling. BNP 850 pg/mL. Diuresed with IV furosemide, 4 kg net weight loss. Creatinine rose to 2.1 mg/dL, likely from diuresis. Discharged on furosemide 40 mg daily with a daily weight log and a low-sodium diet."
+            }
+          ],
+          "labs": [
+            {
+              "test": "BNP",
+              "loinc": "30934-4",
+              "value": "850",
+              "unit": "pg/mL",
+              "ref_range": "<100",
+              "flag": "High",
+              "collected": "2024-03-03"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "0045678",
+      "name": { "first": "  linda ", "last": "WILLIAMS" },
+      "dob": "19900214",
+      "sex": "2",
+      "encounters": [
+        {
+          "encounter_id": "ENC-4001",
+          "type": "outpatient",
+          "documents": [
+            {
+              "type": "Imaging",
+              "date": "20240305",
+              "title": "Thyroid ultrasound",
+              "text": "Indication: palpable neck nodule. Findings: 1.2 cm solid hypoechoic nodule in the right thyroid lobe with smooth margins. No suspicious lymph nodes. Impression: TI-RADS 4, fine needle aspiration recommended."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "0045678",
+      "name": { "first": "  linda ", "last": "WILLIAMS" },
+      "dob": "19900214",
+      "sex": "2",
+      "encounters": [
+        {
+          "encounter_id": "ENC-4001",
+          "type": "outpatient",
+          "documents": [
+            {
+              "type": "Imaging",
+              "date": "20240305",
+              "title": "Thyroid ultrasound",
+              "text": "Indication: palpable neck nodule. Findings: 1.2 cm solid hypoechoic nodule in the right thyroid lobe with smooth margins. No suspicious lymph nodes. Impression: TI-RADS 4, fine needle aspiration recommended."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "56789",
+      "name": { "first": "James", "last": "brown" },
+      "dob": "21/08/1983",
+      "sex": "m",
+      "encounters": [
+        {
+          "encounter_id": "ENC-5001",
+          "type": "emergency",
+          "documents": [
+            {
+              "type": "Progress Note",
+              "date": "05-Mar-2024",
+              "title": "ED progress note - hyperkalemia",
+              "text": "40-year-old male with chronic kidney disease stage 4 seen for weakness. Potassium 6.8 mmol/L (critical). ECG shows peaked T waves. Given calcium gluconate, insulin with dextrose and a potassium binder. Repeat potassium 5.4 after 4 hours. Nephrology consulted."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "0067890",
+      "name": { "first": "Patricia", "last": "Davis" },
+      "sex": "F",
+      "encounters": [
+        {
+          "encounter_id": "ENC-6001",
+          "type": "inpatient",
+          "documents": [
+            {
+              "type": "Discharge Summary",
+              "title": "Discharge Summary - Community acquired pneumonia",
+              "text": "Admitted with fever, productive cough and right lower lobe consolidation on chest X-ray. Treated with ceftriaxone and azithromycin, then switched to oral amoxicillin-clavulanate. Afebrile for 48 hours before discharge. Complete a 7-day antibiotic course. LDL noted at 145 mg/dL, start statin at follow up."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "0078901",
+      "name": { "first": "Michael", "last": "Miller" },
+      "dob": "5/3/65",
+      "sex": "U",
+      "encounters": [
+        {
+          "encounter_id": "ENC-7001",
+          "type": "outpatient",
+          "documents": [
+            {
+              "type": "Lab Report",
+              "date": "5/3/24",
+              "title": "Annual labs - interpretation",
+              "text": "Comprehensive metabolic panel within normal limits. HbA1c 5.4% (normal). Lipid panel: total cholesterol 188 mg/dL, LDL 110 mg/dL. No changes to the current plan. Repeat in 12 months."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "0089012",
+      "name": { "first": "Elizabeth", "last": "Wilson" },
+      "dob": "02/30/1950",
+      "encounters": [
+        {
+          "encounter_id": "ENC-8001",
+          "type": "outpatient",
+          "documents": [
+            {
+              "type": "Imaging",
+              "date": "2024-07-19",
+              "title": "MRI brain without contrast",
+              "text": "Indication: memory loss over 1 year. Findings: moderate generalized volume loss, more than expected for age, with hippocampal atrophy. Scattered white matter changes consistent with small vessel disease. No mass or acute infarct. Impression: findings may support a neurodegenerative process; clinical correlation advised."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "0090123",
+      "name": { "first": "David", "last": "Lee" },
+      "dob": "1977-09-09",
+      "sex": "male",
+      "encounters": [
+        {
+          "encounter_id": "ENC-9001",
+          "type": "inpatient",
+          "documents": [
+            {
+              "type": "Discharge Summary",
+              "date": "2024-04-10",
+              "title": "Discharge Summary - Chest pain, ACS ruled out",
+              "text": "46-year-old male admitted for chest pain. Serial troponin I below 0.04 ng/mL. ECG without ischemic changes. Stress test negative for inducible ischemia. Pain likely musculoskeletal. Discharged with NSAIDs as needed and cardiology follow up."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "0101234",
+      "name": { "first": "Susan", "last": "Clark" },
+      "dob": "1988-06-15",
+      "sex": "",
+      "encounters": [
+        {
+          "encounter_id": "ENC-10001",
+          "type": "outpatient",
+          "documents": [
+            {
+              "type": "Echo Report",
+              "date": "2024-05-20",
+              "title": "Transthoracic echocardiogram",
+              "text": "Normal left ventricle size and function, EF 60%. No valve disease. No pericardial effusion. Normal study."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "first": "Kevin", "last": "Taylor" },
+      "dob": "1960-01-22",
+      "sex": "M",
+      "encounters": [
+        {
+          "encounter_id": "ENC-11001",
+          "type": "inpatient",
+          "documents": [
+            {
+              "type": "Discharge Summary",
+              "date": "2024-05-01",
+              "title": "Discharge Summary - Cellulitis",
+              "text": "Left lower leg cellulitis treated with IV cefazolin, then oral cephalexin. Redness reduced. Discharged to finish a 10-day course."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mrn": "0112233",
+      "name": { "first": "tHOMAS", "last": "moore  " },
+      "dob": "12/01/1955",
+      "sex": "Male",
+      "encounters": [
+        {
+          "encounter_id": "ENC-12001",
+          "type": "outpatient",
+          "documents": [
+            {
+              "type": "CT",
+              "date": "2024-02-11",
+              "title": "CT abdomen and pelvis with contrast",
+              "text": "Indication: right lower quadrant pain. Findings: normal appendix. Several small diverticula in the sigmoid colon without inflammation. Simple cyst in the left kidney, 1.5 cm. Impression: no acute abnormality; diverticulosis."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

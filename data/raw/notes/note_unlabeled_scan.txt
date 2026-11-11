@@ -1,0 +1,6 @@
+Patient: J. Doe
+Date: 05-Mar-2024
+Type: Clinical Note
+
+Scanned page with no MRN on it. Patient reports headache for 2 days, no fever.
+Neuro exam normal. Advised fluids and rest.

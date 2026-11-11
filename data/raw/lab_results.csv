@@ -1,0 +1,14 @@
+mrn,patient_name,dob,test_name,loinc_code,value,unit,reference_range,flag,collected_date
+MRN-0012345,"SMITH, JOHN",04/12/1958,Hemoglobin A1c,4548-4,7.2,%,4.0-5.6,H,2024-03-05
+MRN-0012345,"SMITH, JOHN",04/12/1958,Glucose,2345-7,182,mg/dL,70-99,H,03/05/2024
+" mrn 23456 ",maria   garcia,11/30/1972,Hemoglobin,718-7,11.2,g/dL,12.0-15.5,L,05-Mar-2024
+" mrn 23456 ",maria   garcia,11/30/1972,Hemoglobin,718-7,11.2,g/dL,12.0-15.5,L,05-Mar-2024
+34567,"Johnson, Robert",07/04/1945,Creatinine,2160-0,2.1,mg/dL,0.7-1.3,H,March 5 2024
+0045678,"WILLIAMS, LINDA",02/14/1990,TSH,3016-3,2.1,mIU/L,0.4-4.0,N,20240305
+0056789,"brown, james",21/08/1983,Potassium,2823-3,6.8,mmol/L,3.5-5.1,critical,5/3/24
+0067890,"Davis, Patricia",,LDL Cholesterol,,145,mg/dL,<100,H,2024-04-02
+0090123,"LEE, DANIEL",09/09/1977,Troponin I,10839-9,0.02,ng/mL,<0.04,N,2024-04-10
+101235,"CLARK, SUSAN",06/15/1988,Vitamin D 25-OH,1989-3,18,ng/mL,30-100,L,2024-05-20
+,"TAYLOR, KEVIN",01/22/1960,Sodium,2951-2,139,mmol/L,135-145,N,2024-05-01
+0078901,"miller, michael",5/3/65,Hemoglobin A1c,4548-4,5.4,%,4.0-5.6,,2027-01-15
+0112233,"moore, thomas",12/01/1955,Glucose,2345-7,99,mg/dL,70-99,N,2024-02-11

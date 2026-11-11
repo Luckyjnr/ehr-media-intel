@@ -1,0 +1,10 @@
+Patient: GARCIA, MARIA
+MRN: 0023456
+DOB: 1972-11-30
+Date: 20240410
+Type: Radiology
+
+CT chest without contrast (scanned report).
+Indication: cough not improving, prior normal chest X-ray.
+Findings: 6 mm ground-glass nodule in the right upper lobe. No lymphadenopathy.
+Impression: indeterminate small nodule. Follow up CT in 6-12 months per Fleischner guidelines.
