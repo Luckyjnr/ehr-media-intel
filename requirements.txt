@@ -3,3 +3,6 @@ pydantic==2.14.3
 pytest==9.2.0
 # Task 2: FHIR mapping. v8 defaults to R5; we import from fhir.resources.R4B (the R4 line).
 fhir.resources==8.3.0
+# Task 3: AI summaries
+anthropic==2.8.0
+python-dotenv==1.2.4

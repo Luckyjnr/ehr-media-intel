@@ -58,3 +58,26 @@ Outputs (`data/store/`, git-ignored):
 | `validation_report.json` / `.md` | Bundles built, passed, failed, held for review, errors in plain words |
 
 Code lives in `app/fhir/`: `mapper` → `bundle` → `validate` → `store`, run by `build`.
+
+## Task 3: AI clinical summaries
+
+```bash
+cp .env.example .env               # then set ANTHROPIC_API_KEY (and ANTHROPIC_MODEL if you want another model)
+python -m app.summaries.build      # summarize every stored bundle, print a summary
+```
+
+- Reads each patient bundle from `data/store/fhir.db`, turns it into short readable text, and asks Claude
+  (default `claude-haiku-5-5`) for a structured JSON summary: chief concern, key diagnoses, recent media,
+  flagged anomalies, a summary under 200 words, and a confidence level with a reason.
+- The prompt only allows facts from the record ("Not documented" when missing). Bad JSON or a summary of 200+ words
+  is retried once, then recorded as failed.
+- Our code (not the model) sets the MRN, patient name and a fixed disclaimer on every summary.
+- Quality checks per summary: under 200 words, all parts present, every flagged lab listed, disclaimer present.
+- Summaries are cached in the `summaries` table, keyed by MRN + a hash of the bundle, prompt version and model.
+  Re-running with unchanged data makes **0 API calls**.
+- Report: `data/store/summaries_report.md`.
+
+**Mock mode:** with no `ANTHROPIC_API_KEY`, or with `SUMMARY_MODE=mock`, summaries are built straight from the data
+with no API call. Tests always use mock mode or a fake client, so `pytest` never needs a key.
+
+If your API key is not scoped to a workspace, also set `ANTHROPIC_WORKSPACE_ID` in `.env`.

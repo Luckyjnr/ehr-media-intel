@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 from app.fhir.bundle import build_patient_bundle
-from app.fhir.store import DEFAULT_DB_PATH, save_bundle
+from app.fhir.store import DEFAULT_DB_PATH, clear_bundles, save_bundle
 from app.fhir.validate import validate_bundle, write_report
 from app.ingestion.models import ClinicalDocument, Conflict, LabResult, PatientRecord
 
@@ -116,10 +116,10 @@ def main() -> None:
 
     passed_bundles, report = run_build(patients, documents, labs, conflicts)
 
-    # The database is a derived output, so we rebuild it from scratch each run.
+    # The bundles table is a derived output, so we rebuild it from scratch each run.
     # Otherwise a patient who is now held for review could keep an old bundle.
-    if DEFAULT_DB_PATH.exists():
-        DEFAULT_DB_PATH.unlink()
+    # Only this table is cleared: the same file also holds the Task 3 summary cache.
+    clear_bundles()
     for mrn, bundle in passed_bundles:
         save_bundle(mrn, bundle)
 

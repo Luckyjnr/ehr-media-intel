@@ -50,6 +50,16 @@ def save_bundle(mrn: str, bundle: dict, db_path: Path = DEFAULT_DB_PATH) -> None
         connection.close()
 
 
+def clear_bundles(db_path: Path = DEFAULT_DB_PATH) -> None:
+    """Remove all bundles, but keep other tables (e.g. the Task 3 summary cache)."""
+    connection = _connect(db_path)
+    try:
+        with connection:
+            connection.execute("DELETE FROM bundles")
+    finally:
+        connection.close()
+
+
 def get_bundle(mrn: str, db_path: Path = DEFAULT_DB_PATH) -> dict | None:
     """The stored bundle for this MRN, or None if there is none."""
     connection = _connect(db_path)
