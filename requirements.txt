@@ -6,3 +6,9 @@ fhir.resources==8.3.0
 # Task 3: AI summaries
 anthropic==2.8.0
 python-dotenv==1.2.4
+# Task 4: semantic search and API
+fastapi==0.162.5
+uvicorn==0.54.0
+sentence-transformers==6.3.0
+chromadb==1.5.9
+httpx==0.28.1  # used by FastAPI's TestClient in tests

@@ -81,3 +81,33 @@ python -m app.summaries.build      # summarize every stored bundle, print a summ
 with no API call. Tests always use mock mode or a fake client, so `pytest` never needs a key.
 
 If your API key is not scoped to a workspace, also set `ANTHROPIC_WORKSPACE_ID` in `.env`.
+
+## Task 4: semantic search and API
+
+Search documents, lab reports and AI summaries by meaning, not exact words: "high blood sugar" finds notes
+that say "hyperglycemia" or "glucose 412 mg/dL". Texts are embedded locally with `all-MiniLM-L6-v2`
+(sentence-transformers, no API key) and stored in ChromaDB at `data/store/chroma` (cosine distance).
+
+```bash
+python -m app.search.index             # rebuild the index from data/store/fhir.db (run after Tasks 2 and 3)
+uvicorn app.api.main:app --reload      # API at http://localhost:8000, docs at /docs
+python scripts/benchmark_search.py     # speed check: 50+ items, 20 queries
+```
+
+Endpoints:
+
+| Method | Path | What it does |
+|---|---|---|
+| `POST` | `/search` | Body `{"query": "..."}`. Optional query params `resource_type` (`DocumentReference`, `DiagnosticReport`, `Summary`), `date_from`, `date_to` (YYYY-MM-DD). Returns the top 5 matches with a relevance score (1 − cosine distance) and `took_ms`. |
+| `GET` | `/patients/{mrn}` | Full AI summary (with disclaimer) and the patient's FHIR resources. 404 if not found or held for review. |
+| `GET` | `/health` | Status and number of indexed items. |
+
+Example:
+
+```bash
+curl -X POST 'http://localhost:8000/search?resource_type=DocumentReference&date_from=2024-01-01' \
+  -H 'Content-Type: application/json' \
+  -d '{"query": "brain scan for memory problems"}'
+```
+
+An empty query or a bad date returns 422 with a clear message. CORS allows any `localhost` port for the Task 5 page.
