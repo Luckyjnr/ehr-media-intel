@@ -15,6 +15,8 @@ from typing import Literal
 from dotenv import load_dotenv
 from fastapi import APIRouter, FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, field_validator
 
 from app.fhir.store import DEFAULT_DB_PATH, get_bundle
@@ -24,6 +26,9 @@ from app.summaries.models import ClinicalSummary
 from app.summaries.prompt import extract_facts
 
 ResourceType = Literal["DocumentReference", "DiagnosticReport", "Summary"]
+
+# The clinician search page (Task 5): plain HTML + JS, no build step.
+FRONTEND_DIR = PROJECT_ROOT / "frontend"
 
 # ---------------------------------------------------------------------------
 # Request and response shapes (FastAPI validates and documents these)
@@ -176,6 +181,12 @@ def create_app(
         load_dotenv(PROJECT_ROOT / ".env")  # for ANTHROPIC_MODEL (which summaries to show)
         app.state.embed = embedder or load_embedder()
         app.state.collection = open_collection(chroma_path)
+        # One throwaway search. The first embedding and the first Chroma query
+        # are slow (the index is read from disk), so we pay that cost here at
+        # startup instead of in the first user's search.
+        warm_up_vector = app.state.embed(["warm up"])
+        if app.state.collection.count() > 0:
+            app.state.collection.query(query_embeddings=warm_up_vector, n_results=1)
         app.state.db_path = db_path
         yield
 
@@ -188,6 +199,14 @@ def create_app(
         allow_headers=["*"],
     )
     app.include_router(router)
+
+    # The search page at "/", and its script at "/static/app.js".
+    # Mounted under /static (not "/") so it can never shadow an API route.
+    @app.get("/", include_in_schema=False)
+    def index_page() -> FileResponse:
+        return FileResponse(FRONTEND_DIR / "index.html")
+
+    app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
     return app
 
 

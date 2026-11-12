@@ -139,3 +139,27 @@ def test_get_unknown_patient_returns_404(client):
 
     assert response.status_code == 404
     assert "9999999" in response.json()["detail"]
+
+
+# --- Task 5: the search page is served by the same app -------------------------
+
+
+def test_root_returns_the_search_page(client):
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/html")
+    assert "EHR Media Intelligence" in response.text
+    assert 'role="search"' in response.text
+
+    script = client.get("/static/app.js")
+    assert script.status_code == 200
+
+
+def test_search_still_works_after_mounting_static_files(client):
+    response = client.post("/search", json={"query": "glucose"})
+
+    assert response.status_code == 200
+    assert len(response.json()["results"]) > 0
+    assert client.get("/patients/0000001").status_code == 200
+    assert client.get("/health").json()["status"] == "ok"

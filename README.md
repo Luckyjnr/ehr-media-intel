@@ -111,3 +111,27 @@ curl -X POST 'http://localhost:8000/search?resource_type=DocumentReference&date_
 ```
 
 An empty query or a bad date returns 422 with a clear message. CORS allows any `localhost` port for the Task 5 page.
+
+## Task 5: clinician search page
+
+```bash
+uvicorn app.api.main:app --reload      # then open http://localhost:8000
+```
+
+One page served by the same FastAPI app (`frontend/index.html` + `frontend/app.js`, Tailwind Play CDN, no build step).
+
+- Search as you type (300 ms pause) or press Enter; filter by type and date range.
+- Result cards show patient, MRN, date, type badge, relevance score and the start of the AI summary.
+- Click a card (or press Enter on it) to open the patient drawer: AI summary with disclaimer, confidence,
+  flagged anomalies in amber/red, recent media and the linked FHIR resources.
+- Keyboard and screen reader friendly: labelled inputs, live result count, cards are buttons,
+  the drawer traps focus, Esc closes it, and focus returns to the card.
+- Colours follow the Onye website palette and Quicksand font, darkened where needed to pass WCAG contrast.
+
+| Desktop results | Patient drawer |
+|---|---|
+| ![Desktop results](docs/screenshots/desktop-results.png) | ![Patient drawer](docs/screenshots/desktop-drawer.png) |
+
+| Mobile results | Mobile drawer |
+|---|---|
+| <img src="docs/screenshots/mobile-results.png" alt="Mobile results" width="300"> | <img src="docs/screenshots/mobile-drawer.png" alt="Mobile drawer" width="300"> |
